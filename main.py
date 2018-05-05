@@ -57,6 +57,7 @@ class main:
         print('Wins for %s: %f' % (t, w))
         w2 = compareTeam(o, t)
         print('Wins for %s: %f' % (o, w2))
+        print('difference %f' % (abs(w-w2)))
 
     elif choice is 'c' or choice is 'C':
        per = compareAllTeams(t, compareTeam) 
