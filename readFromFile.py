@@ -1,4 +1,5 @@
 teamData = {}
+freeAgents = {}
 
 with open('teamStats.txt') as input_file:
     for line in input_file:
@@ -7,6 +8,17 @@ with open('teamStats.txt') as input_file:
         'STL', 'BLK', 'TOV', 'PF'), (float(fg), float(fga), float(threeP), float(threePa), float(ft),
         float(fta), float(orb), float(drb), float(ast), float(stl), float(blk), float(blk),
         float(pf))))
+
+'''
+with open('freeAgents.txt') as input_file:
+    for line in input_file:
+        player, fg, fga, threeP, threePa, ft, fta, orb, drb, ast, stl, blk, tov, pf, salary =
+        line.split(' ')
+        freeAgents[player] = dict(zip(('FG', 'FGA', '3P', '3PA', 'FT', 'FTA', 'ORB', 'DRB', 'AST',
+        'STL', 'BLK', 'TOV', 'PF'), (float(fg), float(fga), float(threeP), float(threePa), float(ft),
+        float(fta), float(orb), float(drb), float(ast), float(stl), float(blk), float(blk),
+        float(pf))))
+'''
 
 def printInfo():
     print('initial info: ')
