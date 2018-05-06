@@ -172,7 +172,32 @@ class main:
         ('AST', ast), ('BLK', blk), ('DRB', drb)])
 
         return improvements
-        
+
+    def findPossiblePlayers(stat, playerInfo, getAverageStats):
+        lst = {}
+        temp = getAverageStats(playerInfo)
+        print(stat)
+        if stat == 'FGA' or stat == 'FTA' or stat == 'TOV' or stat == 'PF':
+            for x in playerInfo:
+                if playerInfo[x][stat] < temp['average'][stat]:
+                    lst.update({x:stat})
+            lst = sorted(lst, key=lst.get, reverse=False)
+            for l in lst:
+                print(l)
+                #print(printTeam(lst[l], playerInfo))
+                #print(lst[l])
+
+        else:
+            for x in playerInfo:
+                if playerInfo[x][stat] > temp['average'][stat]:
+                    lst.update({x:stat})
+            lst = sorted(lst, key=lst.get, reverse=True)
+            for l in lst:
+                print(l)
+                #print(printTeam(lst[l], playerInfo))
+                #print(lst[l])
+
+
 
     print('a) see team stats')
     print('b) compare  2 teams')
@@ -236,7 +261,13 @@ class main:
         improvements = calculateWeights('stats', sts, weights)
         lst = sorted(improvements, key=improvements.get, reverse=False)
         print(lst)
-        lst = lst[:5]
+        see = raw_input('see a list of possible players?\ny or n: ').rstrip('\n')
+        if see == 'y' or see == 'Y':
+            lst = lst[:5]
+            for element in lst:
+                findPossiblePlayers(element, freeAgents, getAverageStats)
+                print('')
+
 
 
 
