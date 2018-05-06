@@ -177,6 +177,7 @@ class main:
         lst = {}
         temp = getAverageStats(playerInfo)
         print(stat)
+        ret = []
         if stat == 'FGA' or stat == 'FTA' or stat == 'TOV' or stat == 'PF':
             for x in playerInfo:
                 if playerInfo[x][stat] < temp['average'][stat]:
@@ -184,6 +185,7 @@ class main:
             lst = sorted(lst, key=lst.get, reverse=False)
             for l in lst:
                 print(l)
+                ret.append(l)
                 #print(printTeam(lst[l], playerInfo))
                 #print(lst[l])
 
@@ -194,9 +196,10 @@ class main:
             lst = sorted(lst, key=lst.get, reverse=True)
             for l in lst:
                 print(l)
+                ret.append(l)
                 #print(printTeam(lst[l], playerInfo))
                 #print(lst[l])
-
+        return ret
 
 
     print('a) see team stats')
@@ -267,7 +270,7 @@ class main:
             for element in lst:
                 findPossiblePlayers(element, freeAgents, getAverageStats)
                 print('')
-
+            
 
 
 
